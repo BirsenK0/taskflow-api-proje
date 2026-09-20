@@ -41,6 +41,27 @@ router.post('/',gorevDogrula, (req,res) => {
 
 });
 
+//PUT
+router.put('/:id', gorevDogrula, (req,res) => {
+    const gorevler = gorevleriOku();
+    const id = Number(req.params.id);
+    const gorevIndex = gorevler.findIndex(g => g.id === id);
+
+    if (gorevIndex === -1) {
+        return res.status(404).json({success:false, hata: 'Görev bulunamadı'});    
+    }
+
+    gorevler[gorevIndex] = {
+        ...gorevler[gorevIndex],
+        title: req.body.title,
+        description: req.body.description,
+        priority: req.body.priority,
+        assignee: req.body.assignee
+    };
+
+    gorevleriKaydet(gorevler);
+    res.json({success:true, data: gorevler[gorevIndex]});
+});
 
     
 
