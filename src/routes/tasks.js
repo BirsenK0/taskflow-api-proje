@@ -63,6 +63,20 @@ router.put('/:id', gorevDogrula, (req,res) => {
     res.json({success:true, data: gorevler[gorevIndex]});
 });
 
+//DELETE > Belirli bir  görevi silme
+router.delete('/:id', (req,res) => {
+    const gorevler = gorevleriOku();
+    const id = Number(req.params.id);
+    const gorevIndex = gorevler.findIndex(g => g.id === id);
+
+    if (gorevIndex === -1) {
+        return res.status(404).json({success:false, hata: 'Görev bulunamadı'});
+    }
+    const silinenGorev = gorevler.splice(gorevIndex,1)[0];
+    gorevleriKaydet(gorevler);
+
+    res.json({success:true, data:silinenGorev, mesaj:'Görev siilindi'});
+});
     
 
 

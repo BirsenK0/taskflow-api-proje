@@ -1,14 +1,5 @@
 [
   {
-    "id": 1789942977181,
-    "title": "Backend API tasarla - GUNCELLENDI",
-    "description": "Bu açıklama güncellendi, test amaçlı",
-    "status": "pending",
-    "priority": "low",
-    "assignee": "Birsen",
-    "createdAt": "2026-09-20T22:22:57.181Z"
-  },
-  {
     "id": 1789942990649,
     "title": "Backend API tasarla",
     "description": "TaskFlow projesi için REST API mimarisini planla",
